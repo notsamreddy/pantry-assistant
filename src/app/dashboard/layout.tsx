@@ -73,7 +73,7 @@ export default function DashboardLayout({
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       asChild
-                      isActive={pathname === item.url}
+                      isActive={pathname === item.url || (item.url !== "/dashboard" && pathname?.startsWith(item.url))}
                       tooltip={item.title}
                     >
                       <Link href={item.url}>

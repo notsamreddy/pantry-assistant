@@ -340,7 +340,7 @@ export default function PantriesPage() {
                           : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
                       }`}
                     >
-                      {pantry.status}
+                      {pantry.status.charAt(0).toUpperCase() + pantry.status.slice(1)}
                     </span>
                   </TableCell>
                   <TableCell className="text-right">

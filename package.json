@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.35.1",
+    "@elevenlabs/elevenlabs-js": "^2.24.0",
+    "@googlemaps/js-api-loader": "^2.0.2",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",

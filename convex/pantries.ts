@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { query, mutation } from "./_generated/server";
+import { query, mutation, httpAction } from "./_generated/server";
 
 // Query to get all pantries
 export const list = query({
@@ -10,6 +10,19 @@ export const list = query({
       .order("desc")
       .collect();
   },
+});
+
+// HTTP Action to get all pantries (for server-side API routes)
+export const listHttp = httpAction(async (ctx, request) => {
+  const pantries = await ctx.runQuery("pantries:list", {});
+
+  return new Response(JSON.stringify(pantries), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
 });
 
 // Query to get a single pantry by ID
@@ -92,4 +105,3 @@ export const remove = mutation({
     await ctx.db.delete(args.id);
   },
 });
-
